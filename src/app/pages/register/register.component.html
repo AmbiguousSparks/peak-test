@@ -1,0 +1,29 @@
+<span>Register</span>
+
+<form [formGroup]="formGroup" (submit)="save()">
+
+  <div>
+    <label for="times">Digite o número de parcelas: </label>
+    <input nbInput id="times" width="60" status="secondary" name="times" formControlName="times">
+    <div *ngIf="!formGroup.get('times')?.valid && formGroup.get('times')?.dirty">
+      <span class="alert">Digite um número válido</span>
+    </div>
+  </div>
+  <br>
+
+  <div>
+    <label for="value" style="margin-right: 10px">Digite o valor das parcelas: </label>
+    <input nbInput width="60" status="secondary" id="value" name="value" formControlName="value">
+    <div *ngIf="formGroup.controls['value'].invalid && (formGroup.controls['value'].dirty)">
+      <span class="alert">Digite um valor válido (ex: 44,23)</span>
+    </div>
+  </div>
+
+  <div>
+    <button type="submit" [disabled]="!formGroup.valid">Salvar</button>
+  </div>
+
+</form>
+
+<br>
+<span>Total: {{ response }}</span>

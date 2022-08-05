@@ -1,0 +1,8 @@
+<label for="search">Digite o número para buscar: </label>
+<input type="number" id="search" name="search" [(ngModel)]="searchNumber">
+
+<button (click)="search()">Buscar</button>
+
+<br>
+
+<span *ngIf="result">Resultado: {{ result }}</span>
